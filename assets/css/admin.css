@@ -1,0 +1,75 @@
+
+/* Ajout de scrolling horizontal pour les petits écrans */
+.wp-list-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .wp-list-table thead {
+        display: none; /* Masque l'en-tête du tableau sur mobile */
+    }
+
+    .wp-list-table tr {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+
+    .wp-list-table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .wp-list-table td::before {
+        content: attr(data-colname); /* Affiche le nom de la colonne en tant qu'étiquette */
+        font-weight: bold;
+        margin-right: 10px;
+    }
+}
+
+
+
+/* Réduire la largeur de la colonne ID */
+.wp-list-table .column-id {
+    width: 50px; /* Ajustez cette valeur selon vos besoins */
+}
+
+/* Réduire la largeur de la colonne N° de commande */
+.wp-list-table .column-numero_commande {
+    width: 100px; /* Ajustez cette valeur selon vos besoins */
+}
+
+/* Réduire la largeur de la colonne N° de facture */
+.wp-list-table .column-numero_facture {
+    width: 100px; /* Ajustez cette valeur selon vos besoins */
+}
+
+/* Ajuster les autres colonnes au besoin */
+.wp-list-table .column-date_facture,
+.wp-list-table .column-montant_ht,
+.wp-list-table .column-part_transport_ht,
+.wp-list-table .column-montant_ttc {
+    width: 120px; /* Ajustez pour chaque colonne en fonction des besoins */
+}
+
+/* Colonnes avec des données plus longues */
+.wp-list-table .column-fournisseur,
+.wp-list-table .column-societe {
+    width: 150px;
+}
+/* Style compact pour les boutons dans la colonne Actions */
+.wp-list-table .column-actions form input[type="submit"],
+.wp-list-table .column-actions form select {
+    padding: 2px 8px; /* Ajuste le remplissage pour un bouton plus petit */
+    font-size: 12px; /* Réduit la taille de la police */
+    max-width: 100px; /* Limite la largeur du bouton */
+    white-space: nowrap; /* Empêche le retour à la ligne */
+    overflow: hidden; /* Cache le débordement */
+    text-overflow: ellipsis; /* Affiche des points de suspension si le texte dépasse */
+}

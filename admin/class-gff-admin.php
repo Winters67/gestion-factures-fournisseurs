@@ -16,22 +16,23 @@ class GFF_Admin
         add_menu_page(
             'Gestion des Factures',
             'Factures Fournisseurs',
-            'manage_options',
-            'gff-admin',
+            'edit_posts', // Capacité de l'utilisateur pour accéder à cette page
+            'gff-admin', // Slug de la page parent
             array($this, 'display_admin_dashboard'),
             'dashicons-media-document',
             6
         );
 
         add_submenu_page(
-            'gff-admin',
+            'gff-admin', // Le slug de la page parent
             'Factures Archivées',
             'Archives',
-            'manage_options',
-            'gff-archives',
+            'edit_posts', // Capacité de l'utilisateur pour accéder à cette page
+            'gff-archives', // Slug du sous-menu
             array($this, 'display_archives_page')
         );
     }
+
 
     public function display_admin_dashboard()
     {
@@ -63,19 +64,23 @@ class GFF_Admin
             array('id' => $facture_id)
         );
 
-        echo '<div class="updated"><p>La facture a été archivée avec succès.</p></div>';
+        // Redirection après archivage
+        wp_redirect(admin_url('admin.php?page=gff-admin&archived=success'));
+        exit;
     }
 
     public function enqueue_styles()
     {
+        error_log('enqueue_styles called'); // Test pour voir si la méthode est appelée
         wp_enqueue_style(
             'gff-admin-css',
-            plugins_url('assets/css/admin.css', __FILE__),
+            plugin_dir_url(__FILE__) . 'assets/css/admin.css',
             array(),
             '1.0.0',
             'all'
         );
     }
+
 
     public function enqueue_scripts()
     {

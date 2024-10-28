@@ -1,0 +1,109 @@
+/* Style pour le formulaire de soumission de factures */
+form#invoice_form {
+    max-width: 600px !important;
+    margin: 0 auto !important;
+    padding: 20px !important;
+    border: 1px solid #ddd !important;
+    border-radius: 10px !important;
+    background: #f9f9f9 !important;
+}
+
+form#invoice_form p {
+    margin-bottom: 15px !important;
+}
+
+form#invoice_form label {
+    font-weight: bold !important;
+    margin-bottom: 5px !important;
+    display: inline-block !important;
+}
+
+form#invoice_form input[type="text"],
+form#invoice_form input[type="date"],
+form#invoice_form input[type="number"],
+form#invoice_form input[type="file"] {
+    width: 100% !important;
+    padding: 10px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 5px !important;
+    font-size: 1em !important;
+}
+
+form#invoice_form input[type="submit"] {
+    background: #0073aa !important;
+    color: white !important;
+    padding: 10px 20px !important;
+    border: none !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    transition: background 0.3s !important;
+}
+
+form#invoice_form input[type="submit"]:hover {
+    background: #005177 !important;
+}
+
+/* Style pour l'overlay et la popup de confirmation */
+#confirmationPopupOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#confirmationPopup {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+#confirmationPopup p {
+    font-size: 1.2em;
+    color: #333;
+}
+
+#closePopupButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    background: #0073aa;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+#closePopupButton:hover {
+    background: #005177;
+}
+
+/* Pour s'assurer que le bouton "Fermer" est bien visible */
+#closePopupButton {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 1.1em;
+    background: #d9534f;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+#closePopupButton:hover {
+    background: #c9302c;
+}

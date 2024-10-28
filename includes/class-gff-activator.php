@@ -24,15 +24,19 @@ class GFF_Activator
             date_facture date NOT NULL,
             montant_ht decimal(10,2) NOT NULL,
             montant_ttc decimal(10,2) NOT NULL,
+            part_transport_ht decimal(10,2) NOT NULL,  /* Nouvelle colonne */
             fichier varchar(255) NOT NULL,
             statut varchar(20) DEFAULT 'en attente' NOT NULL,
+            export_securise tinyint(1) DEFAULT 0 NOT NULL COMMENT 'Pour export sécurisé',
             date_submission datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
             PRIMARY KEY  (id)
         ) $charset_collate;";
 
+
         require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
         dbDelta($sql);
     }
+
 
 
     private static function add_roles()
